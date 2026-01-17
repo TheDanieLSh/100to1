@@ -26,3 +26,79 @@ body {
 	background-color: white;
     overflow: hidden;
 }
+
+
+.app-root {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 400px;
+    align-items: center;
+}
+
+.question__title {
+    color: black;
+    font-size: 20px;
+    width: 90%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.question__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+}
+
+.variant-container {
+    perspective: 1000px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.variant-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.variant-container.is-open .variant-inner {
+    transform: rotateX(180deg);
+}
+
+.variant-front, .variant-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.variant-front {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    justify-content: center;
+}
+
+.variant-back {
+    background: linear-gradient(to bottom, #f1c40f, #f39c12);
+    color: #000;
+    transform: rotateX(180deg); /* Изначально перевернут */
+    justify-content: space-between;
+}
