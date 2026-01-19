@@ -35,6 +35,12 @@ body {
     padding: 20px;
 }
 
+.questions {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .question {
     display: flex;
     flex-direction: column;

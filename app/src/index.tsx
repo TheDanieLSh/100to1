@@ -2,6 +2,9 @@ import { render } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import Question from './components/Question';
 import './style.css';
+import TeamScore from './components/TeamScore';
+
+export type TeamColor = 'red' | 'blue';
 
 export function App() {
 	const [questions, setQuestions] = useState([]);
@@ -24,13 +27,17 @@ export function App() {
 
 	return (
 		<div className={'app-root'}>
-			{questions.map((question, index) => (
-				<Question
-					key={index}
-					title={question.title}
-					variants={question.variants}
-				/>
-			))}
+			<TeamScore color="red" />
+			<div className={'questions'}>
+				{questions.map((question, index) => (
+					<Question
+						key={index}
+						title={question.title}
+						variants={question.variants}
+					/>
+				))}
+			</div>
+			<TeamScore color="blue" />
 		</div>
 	);
 }
