@@ -3,4 +3,4 @@ import { TeamColor } from "./index"
 
 export const scoreSignal = signal({ red: 0, blue: 0 });
 
-export const currentTeamSignal = signal<TeamColor>("blue");
+export const currentTeamSignal = signal<TeamColor>("red");

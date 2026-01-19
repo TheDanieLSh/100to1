@@ -4,9 +4,10 @@ import { currentTeamSignal, scoreSignal } from '../store';
 type VariantProps = {
     text: string,
     index: number,
+    vCount: number,
 }
 
-export default function Variant({ text, index }: VariantProps) {
+export default function Variant({ text, index, vCount }: VariantProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
@@ -14,7 +15,7 @@ export default function Variant({ text, index }: VariantProps) {
 
         scoreSignal.value = {
             ...scoreSignal.value,
-            [currentTeamSignal.value]: scoreSignal.value[currentTeamSignal.value] + 1
+            [currentTeamSignal.value]: scoreSignal.value[currentTeamSignal.value] + (vCount - index),
         };
 
         currentTeamSignal.value = currentTeamSignal.value === 'red' ? 'blue' : 'red';
@@ -27,7 +28,7 @@ export default function Variant({ text, index }: VariantProps) {
         >
             <div className="variant-inner">
                 <div className="variant-front">
-                    <span className="variant-number">{index}</span>
+                    <span className="variant-number">{index + 1}</span>
                 </div>
                 <div className="variant-back">
                     {text}

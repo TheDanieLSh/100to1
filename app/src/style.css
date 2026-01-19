@@ -108,3 +108,30 @@ body {
     transform: rotateX(180deg); /* Изначально перевернут */
     justify-content: space-between;
 }
+
+.team-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    font-size: 30px;
+}
+
+.team-score__color-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+}
+
+.team-score.blue .team-score__color-box {
+    background-color: blue;
+}
+
+.team-score.red .team-score__color-box {
+    background-color: red;
+}
+
+.team-score__score {
+    color: black;
+}

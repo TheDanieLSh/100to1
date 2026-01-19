@@ -11,7 +11,7 @@ export default function Question({ title, variants }: QuestionProps) {
             <div className='question__title'>{title}</div>
             <div className='question__list'>
                 {variants.map((variant, i) => (
-                    <Variant key={i} text={variant} index={i + 1} />
+                    <Variant key={i} text={variant} index={i} vCount={variants.length} />
                 ))}
             </div>
         </div>
