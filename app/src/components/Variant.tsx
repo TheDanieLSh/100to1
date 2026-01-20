@@ -13,12 +13,14 @@ export default function Variant({ text, index, vCount }: VariantProps) {
     const handleClick = () => {
         setIsOpen(!isOpen);
 
-        scoreSignal.value = {
-            ...scoreSignal.value,
-            [currentTeamSignal.value]: scoreSignal.value[currentTeamSignal.value] + (vCount - index),
-        };
+        if (!isOpen) {
+            scoreSignal.value = {
+                ...scoreSignal.value,
+                [currentTeamSignal.value]: scoreSignal.value[currentTeamSignal.value] + (vCount - index),
+            };
 
-        currentTeamSignal.value = currentTeamSignal.value === 'red' ? 'blue' : 'red';
+            currentTeamSignal.value = currentTeamSignal.value === 'red' ? 'blue' : 'red';
+        }
     }
 
     return (
@@ -27,12 +29,8 @@ export default function Variant({ text, index, vCount }: VariantProps) {
             onClick={() => handleClick()}
         >
             <div className="variant-inner">
-                <div className="variant-front">
-                    <span className="variant-number">{index + 1}</span>
-                </div>
-                <div className="variant-back">
-                    {text}
-                </div>
+                <div className="variant-front">{index + 1}</div>
+                <div className="variant-back">{text}</div>
             </div>
         </div>
     );
