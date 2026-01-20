@@ -13,14 +13,21 @@ export default function Variant({ text, index, vCount }: VariantProps) {
     const handleClick = () => {
         setIsOpen(!isOpen);
 
+        const oppositeTeam = currentTeamSignal.value === 'red' ? 'blue' : 'red';
+
         if (!isOpen) {
             scoreSignal.value = {
                 ...scoreSignal.value,
                 [currentTeamSignal.value]: scoreSignal.value[currentTeamSignal.value] + (vCount - index),
             };
-
-            currentTeamSignal.value = currentTeamSignal.value === 'red' ? 'blue' : 'red';
+        } else {
+            scoreSignal.value = {
+                ...scoreSignal.value,
+                [oppositeTeam]: scoreSignal.value[oppositeTeam] - (vCount - index),
+            };
         }
+
+        currentTeamSignal.value = oppositeTeam;
     }
 
     return (
