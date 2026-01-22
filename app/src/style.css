@@ -36,7 +36,6 @@ html {
 body {
     height: 100%;
 	background-color: white;
-    overflow: hidden;
 }
 
 
@@ -105,15 +104,25 @@ body {
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
+
     border: 2px solid #fff;
     font-weight: bold;
     color: black;
     text-transform: uppercase;
     font-family: 'Play';
+
+    clip-path: polygon(
+        20px 0,
+        calc(100% - 20px) 0,
+        100% 50%,
+        calc(100% - 20px) 100%,
+        20px 100%,
+        0 50%
+    );
 }
 
 .variant-front {
-    background: linear-gradient(to bottom, #e1b70f, #eca025);
+    background: linear-gradient(to bottom, #e1b70f, #efa631);
     font-size: 20px;
 }
 
