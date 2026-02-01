@@ -15,7 +15,7 @@ jobs:
 
         defaults:
             run:
-                working-directory: ./app
+                working-directory: app
 
         steps:
             - uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
 
             - uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./dist
+                  path: app/.dist
 
     deploy:
         needs: build
