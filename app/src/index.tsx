@@ -11,7 +11,7 @@ export function App() {
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		fetch('/questions.json')
+		fetch(import.meta.env.BASE_URL + '/questions.json')
 			.then((res) => res.json())
 			.then((data) => {
 				setQuestions(data);
