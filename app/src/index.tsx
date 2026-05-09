@@ -1,13 +1,18 @@
 import { render } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
 import Question from './components/Question';
-import './style.css';
 import TeamScore from './components/TeamScore';
+import './style.css';
 
 export type TeamColor = 'red' | 'blue';
 
+interface Question {
+	title: string;
+	variants: string[];
+}
+
 export function App() {
-	const [questions, setQuestions] = useState([]);
+	const [questions, setQuestions] = useState<Question[]>([]);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
